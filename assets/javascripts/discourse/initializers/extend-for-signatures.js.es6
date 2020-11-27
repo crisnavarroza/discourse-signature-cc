@@ -10,7 +10,7 @@ function attachSignature(api, siteSettings) {
       return;
     }
 
-    // const currentUser = api.getCurrentUser();
+    const currentUser = api.getCurrentUser();
     // if (currentUser) {
     const enabled = currentUser.get("custom_fields.see_signatures");
     if (enabled) {

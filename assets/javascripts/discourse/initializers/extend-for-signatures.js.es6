@@ -10,30 +10,30 @@ function attachSignature(api, siteSettings) {
       return;
     }
 
-    const currentUser = api.getCurrentUser();
-    if (currentUser) {
-      const enabled = currentUser.get("custom_fields.see_signatures");
-      if (enabled) {
-        if (siteSettings.signatures_advanced_mode) {
-          return [
-            dec.h("hr"),
-            dec.h(
-              "div",
-              new RawHtml({
-                html: `<div class='user-signature'>${attrs.user_signature}</div>`,
-              })
-            ),
-          ];
-        } else {
-          return [
-            dec.h("hr"),
-            dec.h("img.signature-img", {
-              attributes: { src: attrs.user_signature },
-            }),
-          ];
-        }
+    // const currentUser = api.getCurrentUser();
+    // if (currentUser) {
+    const enabled = currentUser.get("custom_fields.see_signatures");
+    if (enabled) {
+      if (siteSettings.signatures_advanced_mode) {
+        return [
+          dec.h("hr"),
+          dec.h(
+            "div",
+            new RawHtml({
+              html: `<div class='user-signature'>${attrs.user_signature}</div>`,
+            })
+          ),
+        ];
+      } else {
+        return [
+          dec.h("hr"),
+          dec.h("img.signature-img", {
+            attributes: { src: attrs.user_signature },
+          }),
+        ];
       }
     }
+    // }
   });
 }
 

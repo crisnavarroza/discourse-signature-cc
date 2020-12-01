@@ -13,6 +13,7 @@ function attachSignature(api, siteSettings) {
     const currentUser = api.getCurrentUser();
     // if (currentUser) {
     const enabled = currentUser.get("custom_fields.see_signatures");
+    console.log("Signature plugin: " +enabled)
     if (enabled) {
       if (siteSettings.signatures_advanced_mode) {
         return [
